@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: windows-installer
-  namespace: chrisj
+  namespace: vms-pipeline
 spec:
   params:
     - default: '<get the windows iso in here>'
@@ -32,7 +32,7 @@ spec:
                 http:
                   url: $(params.winImageDownloadURL)
         - name: namespace
-          value: chrisj
+          value: vms-pipeline
         - name: waitForSuccess
           value: 'true'
         - name: allowReplace
@@ -65,7 +65,7 @@ spec:
               source:
                 blank: {}
         - name: namespace
-          value: chrisj
+          value: vms-pipeline
         - name: waitForSuccess
           value: 'true'
         - name: allowReplace
